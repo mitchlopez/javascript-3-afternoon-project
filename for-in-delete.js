@@ -11,13 +11,13 @@
   In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
 */
 
-// var values = {
-//   one: 'These',
-//   two: ' are',
-//   three: ' the',
-//   four: ' property',
-//   five: ' values.'
-// } 
+var values = {
+  one: 'These',
+  two: ' are',
+  three: ' the',
+  four: ' property',
+  five: ' values.'
+} 
 
 // for(var key in values) {
 //   console.log(values[key])
@@ -40,8 +40,14 @@
 */
 
 function showValues( obj ) {
-  //Code Here
+let string = ""
+  for (let prop in obj){
+  string += obj[prop]
 }
+console.log(string);
+return string;
+}
+showValues()
 
 
 
@@ -52,9 +58,19 @@ function showValues( obj ) {
   Write a for in loop that loops over the object and changes any value that is greater than 10 to 0. 
   Return the updated object.
 */
+let example1 = {
+  1:1,2:12,3:5,4:9,5:18,6:53,7:7,8:  3
+}
 
-//Code Here
-
+function greaterThan10 (object1){
+  for (let prop in object1){
+    if(object1[prop] > 10){
+      object1[prop] = 0;
+    }
+  }
+  console.log(object1)
+  return object1;
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -65,9 +81,13 @@ function showValues( obj ) {
   Return the updated object.
 */
 
-//Code Here
-
-
+function double(obj1){
+  for (let prop in obj1){
+      obj1[prop] = obj1[prop] * 2;
+}
+    console.log(obj1);
+   return obj1;
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -78,9 +98,24 @@ function showValues( obj ) {
   If the property name starts with an 'sh', concatenate the value to the string variable.
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
+//const str1 = 'Saturday night plans';
 
-//Code Here
+//console.log(str1.startsWith('Sat'));
+// expected output: true
 
+//console.log(str1.startsWith('Sat', 3));
+// expected output: false
+
+function secrets (obj){
+  let str1 = ''
+  for (let prop in obj){
+    if (prop.startsWith('sh') === true){
+      str1 += obj[prop];
+    }
+  }
+  console.log(str1);
+  return str1;
+}
 
 
 /* 
@@ -110,7 +145,10 @@ function showValues( obj ) {
   Delete the property password and return the object.
 */
 
-//Code Here
+function removePassword (obj1){
+  delete obj1.password;
+  return obj1;
+}
 
 
 
@@ -129,7 +167,11 @@ var deleteTheBigNumbers = {
   Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
 */
 
-//Code Here
+for (let prop in deleteTheBigNumbers){
+  if(deleteTheBigNumbers[prop] > 100){
+    delete deleteTheBigNumbers[prop];
+  }
+}
 
 
 
@@ -142,8 +184,14 @@ var deleteTheBigNumbers = {
   Return the updated object.
 */
 
-//Code Here
-
+function startsWithK (obj1){
+for (let prop1 in obj1){
+  if (prop1.startsWith('k') === true){
+    delete obj1[prop1];
+  }
+  }
+  return obj1
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -157,6 +205,13 @@ var deleteTheBigNumbers = {
   (hint: the method includes() may be of use...)
 */
 
-//Code Here
+function hiddenTreasure(obj1){
+  for(let prop in obj1){
+    if (obj1[prop].includes('treasure') === false){
+      delete obj1[prop];
+    }
+  }
+  return obj1;
+}
 
 
